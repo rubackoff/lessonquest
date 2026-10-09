@@ -12,6 +12,7 @@ data/*.sqlite*
 tmp/
 output/
 .wrangler/
+.netlify/
 dist/
 deploy/sites-beta/
 

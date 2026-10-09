@@ -4,6 +4,7 @@ import { randomUUID } from 'node:crypto'
 import { mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { DatabaseSync } from 'node:sqlite'
+import { getConnectionString, getDatabase as getNetlifyDatabase, MissingDatabaseConnectionError } from '@netlify/database'
 import type { CreateActivityInput } from '@/lib/activity-api'
 import { isSavedEditorActivity } from '@/lib/activity-api'
 import type { CreateAttemptInput, SavedAttempt } from '@/lib/attempt-api'
@@ -30,30 +31,31 @@ type AttemptRow = {
 
 const globalDatabase = globalThis as typeof globalThis & {
   activityDatabase?: DatabaseSync
+  netlifyActivityDatabase?: ReturnType<typeof getNetlifyDatabase>
 }
 
-export function listPublishedActivities(limit = 20): SavedEditorActivity[] {
-  const rows = getDatabase()
-    .prepare(
-      `SELECT id, game_id, title, saved_at, level_json
-       FROM activities
-       ORDER BY saved_at DESC
-       LIMIT ?`,
-    )
-    .all(Math.max(1, Math.min(limit, 100))) as ActivityRow[]
+export async function listPublishedActivities(limit = 20): Promise<SavedEditorActivity[]> {
+  const rows = await query<ActivityRow>(
+    `SELECT id, game_id, title, saved_at, level_json
+     FROM activities
+     ORDER BY saved_at DESC
+     LIMIT ?`,
+    [Math.max(1, Math.min(limit, 100))],
+  )
 
   return rows.map(mapActivityRow).filter((activity): activity is SavedEditorActivity => activity !== null)
 }
 
-export function getPublishedActivity(id: string): SavedEditorActivity | null {
-  const row = getDatabase()
-    .prepare('SELECT id, game_id, title, saved_at, level_json FROM activities WHERE id = ?')
-    .get(id) as ActivityRow | undefined
+export async function getPublishedActivity(id: string): Promise<SavedEditorActivity | null> {
+  const [row] = await query<ActivityRow>(
+    'SELECT id, game_id, title, saved_at, level_json FROM activities WHERE id = ?',
+    [id],
+  )
 
   return row ? mapActivityRow(row) : null
 }
 
-export function createPublishedActivity(input: CreateActivityInput): SavedEditorActivity {
+export async function createPublishedActivity(input: CreateActivityInput): Promise<SavedEditorActivity> {
   const activity: SavedEditorActivity = {
     id: `${input.gameId}-${randomUUID()}`,
     gameId: input.gameId,
@@ -62,36 +64,35 @@ export function createPublishedActivity(input: CreateActivityInput): SavedEditor
     level: input.level,
   }
 
-  getDatabase()
-    .prepare(
-      `INSERT INTO activities (id, game_id, title, saved_at, level_json)
-       VALUES (?, ?, ?, ?, ?)`,
-    )
-    .run(activity.id, activity.gameId, activity.title, activity.savedAt, JSON.stringify(activity.level))
+  await query(
+    `INSERT INTO activities (id, game_id, title, saved_at, level_json)
+     VALUES (?, ?, ?, ?, ?)`,
+    [activity.id, activity.gameId, activity.title, activity.savedAt, JSON.stringify(activity.level)],
+  )
 
   return activity
 }
 
-export function deletePublishedActivity(id: string) {
-  return getDatabase().prepare('DELETE FROM activities WHERE id = ?').run(id).changes > 0
+export async function deletePublishedActivity(id: string) {
+  const rows = await query('DELETE FROM activities WHERE id = ? RETURNING id', [id])
+  return rows.length > 0
 }
 
-export function listActivityAttempts(limit = 30): SavedAttempt[] {
-  const rows = getDatabase()
-    .prepare(
-      `SELECT id, activity_id, game_id, activity_title, student_name,
-              completed_at, duration_seconds, accuracy
-       FROM attempts
-       ORDER BY completed_at DESC
-       LIMIT ?`,
-    )
-    .all(Math.max(1, Math.min(limit, 100))) as AttemptRow[]
+export async function listActivityAttempts(limit = 30): Promise<SavedAttempt[]> {
+  const rows = await query<AttemptRow>(
+    `SELECT id, activity_id, game_id, activity_title, student_name,
+            completed_at, duration_seconds, accuracy
+     FROM attempts
+     ORDER BY completed_at DESC
+     LIMIT ?`,
+    [Math.max(1, Math.min(limit, 100))],
+  )
 
   return rows.map(mapAttemptRow)
 }
 
-export function createActivityAttempt(input: CreateAttemptInput): SavedAttempt | null {
-  const activity = getPublishedActivity(input.activityId)
+export async function createActivityAttempt(input: CreateAttemptInput): Promise<SavedAttempt | null> {
+  const activity = await getPublishedActivity(input.activityId)
   if (!activity) return null
 
   const attempt: SavedAttempt = {
@@ -105,14 +106,12 @@ export function createActivityAttempt(input: CreateAttemptInput): SavedAttempt |
     accuracy: input.accuracy,
   }
 
-  getDatabase()
-    .prepare(
-      `INSERT INTO attempts (
-         id, activity_id, game_id, activity_title, student_name,
-         completed_at, duration_seconds, accuracy
-       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-    )
-    .run(
+  await query(
+    `INSERT INTO attempts (
+       id, activity_id, game_id, activity_title, student_name,
+       completed_at, duration_seconds, accuracy
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
       attempt.id,
       attempt.activityId,
       attempt.gameId,
@@ -121,9 +120,29 @@ export function createActivityAttempt(input: CreateAttemptInput): SavedAttempt |
       attempt.completedAt,
       attempt.durationSeconds,
       attempt.accuracy,
-    )
+    ],
+  )
 
   return attempt
+}
+
+async function query<T = Record<string, unknown>>(statement: string, parameters: Array<string | number> = []): Promise<T[]> {
+  let cloudConfigured = false
+  try {
+    getConnectionString()
+    cloudConfigured = true
+  } catch (error) {
+    if (!(error instanceof MissingDatabaseConnectionError) || process.env.NETLIFY || process.env.SITE_ID) throw error
+  }
+
+  if (cloudConfigured) {
+    const database = globalDatabase.netlifyActivityDatabase ??= getNetlifyDatabase()
+    let index = 0
+    const sql = statement.replace(/\?/g, () => `$${++index}`)
+    return await database.sql.unsafe(sql, parameters) as T[]
+  }
+
+  return getDatabase().prepare(statement).all(...parameters) as T[]
 }
 
 function getDatabase() {

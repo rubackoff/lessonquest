@@ -1,5 +1,5 @@
 import nextVitals from "eslint-config-next/core-web-vitals";
 
-const eslintConfig = [{ ignores: ["tmp/**", "output/**", "third-party/**", "deploy/**", "hosting/**"] }, ...nextVitals];
+const eslintConfig = [{ ignores: ["tmp/**", "output/**", "third-party/**", "deploy/**", "hosting/**", ".netlify/**"] }, ...nextVitals];
 
 export default eslintConfig;

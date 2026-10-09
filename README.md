@@ -51,3 +51,25 @@ Repository: https://github.com/rubackoff/lessonquest
 Hosted preview: https://lessonquest.rubackoff.chatgpt.site
 
 The preview retains its existing owner-only access. The GitHub repository is public. See [English release and hosting notes](docs/ENGLISH-RELEASE.md) for scope, archived visual drafts, verification, and deployment details.
+
+## Netlify deployment
+
+The repository is ready for a native Next.js deployment on Netlify. Connect this GitHub repository, keep the Free plan, and use the settings in `netlify.toml`. No separate frontend build or game rewrite is required.
+
+Netlify Database supplies persistent Postgres storage for published activities and attempts. The migration in `netlify/database/migrations/` is applied by Netlify during deployment; the database connection is provisioned automatically. Local development without Netlify still uses SQLite. A misconfigured Netlify environment fails instead of silently saving data to temporary SQLite storage.
+
+Publication requires the project owner's Netlify login. A prepared build is not confirmation that a public deployment exists. After publication, check the homepage, Studio, a saved activity link, and result submission:
+
+```sh
+node hosting/sites/scripts/smoke-storage.mjs https://YOUR-PROJECT.netlify.app
+```
+
+The storage check creates its own test activity and removes it afterward.
+
+### Free-plan budget
+
+Checked against [Netlify pricing](https://www.netlify.com/pricing/) on October 9, 2026: the Free plan includes 300 credits per month. Production deploys cost 15 credits each, bandwidth 20 credits per GB, web requests 2 credits per 10,000, and function compute 10 credits per GB-hour. [Database compute](https://docs.netlify.com/build/data-and-storage/netlify-database/billing-and-usage/) costs 10 credits per compute-unit hour; the Free database sleeps after five idle minutes.
+
+An illustrative month with three production deploys, 2 GB of total metered bandwidth, and five database compute-unit hours uses 135 credits before web requests, function compute, and any applicable database storage charge. This is a budget example, not a measured traffic guarantee. Check current storage pricing in the dashboard; the documentation still refers to an introductory storage period that has ended.
+
+Most gameplay runs in the browser. Avoid frequent production deploys during a demo month, use previews for iteration, and check Usage & billing after initial testers. At the monthly limit Netlify pauses the projects until the next cycle; Free does not automatically charge for overages. AI-provider API usage is separate from this hosting estimate.
