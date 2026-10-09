@@ -20,7 +20,15 @@ function copyDirectory(from, to) {
   for (const entry of readdirSync(from, { withFileTypes: true })) {
     const input = resolve(from, entry.name), output = resolve(to, entry.name)
     if (entry.isDirectory()) copyDirectory(input, output)
-    else if (entry.isFile()) writeFileSync(output, readFileSync(input))
+    else if (entry.isFile()) {
+      let content = readFileSync(input)
+      // This Vinext release fails during automatic RSC link prefetch setup.
+      // Keep ordinary navigation and avoid speculative requests in the hosted build.
+      if (entry.name.endsWith('.tsx') && content.toString().includes('next/link')) {
+        content = Buffer.from(content.toString().replace(/<Link(?=\s)/g, '<Link prefetch={false}'))
+      }
+      writeFileSync(output, content)
+    }
   }
 }
 for (const folder of ['app', 'components', 'lib', 'public']) {
