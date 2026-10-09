@@ -22,10 +22,10 @@ function copyDirectory(from, to) {
     if (entry.isDirectory()) copyDirectory(input, output)
     else if (entry.isFile()) {
       let content = readFileSync(input)
-      // This Vinext release fails during automatic RSC link prefetch setup.
-      // Keep ordinary navigation and avoid speculative requests in the hosted build.
+      // This Vinext release fails in its RSC navigation module.
+      // Native links preserve working navigation in the hosted build.
       if (entry.name.endsWith('.tsx') && content.toString().includes('next/link')) {
-        content = Buffer.from(content.toString().replace(/<Link(?=\s)/g, '<Link prefetch={false}'))
+        content = Buffer.from(content.toString().replace(/(['"])next\/link\1/g, "'@/components/hosted-link'"))
       }
       writeFileSync(output, content)
     }
