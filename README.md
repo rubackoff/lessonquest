@@ -48,20 +48,20 @@ Keep third-party attribution alongside the corresponding assets. Source notes ar
 
 Repository: https://github.com/rubackoff/lessonquest
 
-Hosted preview: https://lessonquest.rubackoff.chatgpt.site
+Public demo: https://lessonquest.netlify.app
 
-The preview retains its existing owner-only access. The GitHub repository is public. See [English release and hosting notes](docs/ENGLISH-RELEASE.md) for scope, archived visual drafts, verification, and deployment details.
+The demo and GitHub repository are public. The previous Sites preview remains owner-only. See [English release and hosting notes](docs/ENGLISH-RELEASE.md) for scope, archived visual drafts, and the earlier deployment details.
 
 ## Netlify deployment
 
-The repository is ready for a native Next.js deployment on Netlify. Connect this GitHub repository, keep the Free plan, and use the settings in `netlify.toml`. No separate frontend build or game rewrite is required.
+The project runs on the Netlify Free plan with native Next.js support. Pushes to `main` in this GitHub repository trigger a cloud build and deployment using `netlify.toml`. The Next.js runtime is explicitly enabled for both CLI and Git-based builds.
 
 Netlify Database supplies persistent Postgres storage for published activities and attempts. The migration in `netlify/database/migrations/` is applied by Netlify during deployment; the database connection is provisioned automatically. Local development without Netlify still uses SQLite. A misconfigured Netlify environment fails instead of silently saving data to temporary SQLite storage.
 
-Publication requires the project owner's Netlify login. A prepared build is not confirmation that a public deployment exists. After publication, check the homepage, Studio, a saved activity link, and result submission:
+The live deployment was checked from an unauthenticated browser. The homepage, activity publication, student links, result submission, and deletion passed the storage check. Run it again after a hosting change:
 
 ```sh
-node hosting/sites/scripts/smoke-storage.mjs https://YOUR-PROJECT.netlify.app
+node hosting/sites/scripts/smoke-storage.mjs https://lessonquest.netlify.app
 ```
 
 The storage check creates its own test activity and removes it afterward.
