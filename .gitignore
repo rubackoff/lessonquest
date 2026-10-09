@@ -1,0 +1,26 @@
+.next/
+.playwright-cli/
+node_modules/
+logs/
+*.log
+data/*.sqlite*
+*.tsbuildinfo
+.env*.local
+.env
+.env.*
+!.env.example
+tmp/
+output/
+.wrangler/
+dist/
+deploy/sites-beta/
+
+# Private source materials and generated visual indexes stay on this computer.
+content-archive/raw/**
+content-archive/tiles/**
+content-archive/index/**
+content-archive/manifests/*.local.json
+content-archive/manifests/*.local.jsonl
+!content-archive/raw/.gitkeep
+!content-archive/tiles/.gitkeep
+!content-archive/index/.gitkeep
