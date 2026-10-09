@@ -1,0 +1,27 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Corgi coach</title>
+  <desc id="desc">Friendly corgi tutor mascot in a teal hoodie.</desc>
+  <ellipse cx="128" cy="214" rx="78" ry="14" fill="#C7E9F2"/>
+  <path d="M76 123C62 133 54 154 58 177C63 207 91 226 128 226C165 226 193 207 198 177C202 154 194 133 180 123H76Z" fill="#18B8A6"/>
+  <path d="M75 177C83 194 102 204 128 204C154 204 173 194 181 177C172 184 154 190 128 190C102 190 84 184 75 177Z" fill="#0D9488"/>
+  <path d="M76 94L49 49C46 44 52 39 57 43L96 74L76 94Z" fill="#D9822B"/>
+  <path d="M180 94L207 49C210 44 204 39 199 43L160 74L180 94Z" fill="#D9822B"/>
+  <path d="M65 49L91 78L78 88L60 58C58 54 61 50 65 49Z" fill="#FFE7D6"/>
+  <path d="M191 49L165 78L178 88L196 58C198 54 195 50 191 49Z" fill="#FFE7D6"/>
+  <path d="M64 114C64 76 92 52 128 52C164 52 192 76 192 114C192 153 165 181 128 181C91 181 64 153 64 114Z" fill="#E6903C"/>
+  <path d="M90 125C90 96 106 78 128 78C150 78 166 96 166 125C166 157 149 176 128 176C107 176 90 157 90 125Z" fill="#FFF4EA"/>
+  <circle cx="104" cy="111" r="10" fill="#16212F"/>
+  <circle cx="152" cy="111" r="10" fill="#16212F"/>
+  <circle cx="108" cy="107" r="3" fill="white"/>
+  <circle cx="156" cy="107" r="3" fill="white"/>
+  <path d="M122 132C122 127 126 124 128 124C130 124 134 127 134 132C134 136 131 139 128 139C125 139 122 136 122 132Z" fill="#16212F"/>
+  <path d="M112 148C120 158 136 158 144 148" stroke="#16212F" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="85" cy="132" r="10" fill="#F6B06B"/>
+  <circle cx="171" cy="132" r="10" fill="#F6B06B"/>
+  <path d="M68 161C42 155 32 139 38 127C44 116 59 124 71 144L68 161Z" fill="#FFF4EA"/>
+  <path d="M188 161C214 155 224 139 218 127C212 116 197 124 185 144L188 161Z" fill="#FFF4EA"/>
+  <path d="M181 139C202 126 218 137 206 154C197 166 181 167 171 158" fill="#FFF4EA"/>
+  <path d="M176 145C189 137 202 140 203 148C204 157 190 161 179 154" stroke="#16212F" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="128" cy="197" r="15" fill="#F8C64E"/>
+  <path d="M128 187L131 194L139 195L133 200L135 208L128 204L121 208L123 200L117 195L125 194L128 187Z" fill="#FFFFFF"/>
+</svg>

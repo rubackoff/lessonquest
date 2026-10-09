@@ -13,7 +13,7 @@ LessonQuest is a prototype platform for practice in mathematics, science, langua
 - A pendulum laboratory and lesson-authoring prototypes.
 - Design specifications, asset sources, and implementation notes.
 
-The English edition is being prepared for its first public release. Do not treat a successful build as evidence that every learning activity has been reviewed by a teacher.
+This is an English-language prototype. The full catalog has not undergone a complete pedagogical review.
 
 ## Development
 
@@ -27,6 +27,7 @@ npm run dev
 Open the local address printed by Next.js. To validate a change:
 
 ```sh
+npm run check:english
 npm run test
 npm run lint
 npm run typecheck
@@ -47,4 +48,6 @@ Keep third-party attribution alongside the corresponding assets. Source notes ar
 
 Repository: https://github.com/rubackoff/lessonquest
 
-Public deployment is pending the English content and behavior checks. Hosting instructions will be added with the first verified deployment.
+Hosted preview: https://lessonquest.rubackoff.chatgpt.site
+
+The preview retains its existing owner-only access. The GitHub repository is public. See [English release and hosting notes](docs/ENGLISH-RELEASE.md) for scope, archived visual drafts, verification, and deployment details.

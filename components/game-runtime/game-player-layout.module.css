@@ -1,0 +1,55 @@
+.fullGame {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.fullGame > :global(.playfield) {
+  grid-column: 1 / -1;
+  min-height: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.studentName {
+  display: flex;
+  min-width: 168px;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 7px 5px 11px;
+  border: 1px solid rgb(31 105 122 / 18%);
+  border-radius: 13px;
+  background: rgb(255 255 255 / 74%);
+  color: #607085;
+  font-size: 0.72rem;
+  font-weight: 650;
+}
+
+.studentName input {
+  min-width: 0;
+  width: 112px;
+  height: 32px;
+  padding: 0 9px;
+  border: 1px solid rgb(31 105 122 / 14%);
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: #172033;
+  font: inherit;
+}
+
+.studentName input:focus {
+  border-color: #0b918d;
+  box-shadow: 0 0 0 3px rgb(11 145 141 / 10%);
+}
+
+@media (max-width: 720px) {
+  .studentName {
+    order: 3;
+    width: 100%;
+  }
+
+  .studentName input {
+    width: 100%;
+  }
+}

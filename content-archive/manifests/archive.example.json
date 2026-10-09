@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "own-editorial-pack",
+      "title": "Own editorial set",
+      "kind": "own-content",
+      "owner": "Author of the material",
+      "license": {
+        "id": "OWN-CONTENT",
+        "allowedUses": ["index", "extract", "adapt", "publish-text", "publish-media"]
+      },
+      "captureMode": "user-upload",
+      "indexAllowed": true
+    },
+    {
+      "id": "closed-platform-reference",
+      "title": "Separate reference of a closed platform",
+      "sourceUrl": "https://example.com/activity",
+      "kind": "reference-link",
+      "owner": "External copyright holder",
+      "license": {
+        "id": "PROPRIETARY-REFERENCE",
+        "allowedUses": ["link"]
+      },
+      "captureMode": "manual-link",
+      "indexAllowed": false,
+      "notes": "Store only the URL, mechanics classification and your own notes."
+    }
+  ],
+  "items": [
+    {
+      "id": "triangle-angle-blueprint-reference",
+      "sourceId": "own-editorial-pack",
+      "title": "Family of problems on the third angle of a triangle",
+      "locale": "ru",
+      "subjectIds": ["geometry"],
+      "topicPath": ["Triangles", "Sum of angles"],
+      "audiences": ["middle-school"],
+      "gradeFrom": 7,
+      "gradeTo": 7,
+      "mechanics": ["quiz", "match", "find-error"],
+      "assets": [],
+      "referenceNotes": "Parametric family with reproducible seed.",
+      "redrawBrief": "Use declarative GeometryScene and neutral letter symbols.",
+      "publishPolicy": "adapt-after-redraw",
+      "workflowStatus": "redraw-required",
+      "reviews": {
+        "rightsReview": "passed",
+        "subjectReview": "pending",
+        "visualReview": "pending"
+      },
+      "tags": ["angles", "triangle", "parametric specification"]
+    },
+    {
+      "id": "language-game-mechanic-reference",
+      "sourceId": "closed-platform-reference",
+      "sourceLocator": "https://example.com/activity",
+      "title": "Reference mechanics of dictionary matching",
+      "locale": "ru",
+      "subjectIds": ["english"],
+      "topicPath": ["Vocabulary"],
+      "audiences": ["adult"],
+      "mechanics": ["match"],
+      "assets": [],
+      "referenceNotes": "Record only the interaction structure and UX notes.",
+      "redrawBrief": "Create your own texts, images, card composition and animation.",
+      "publishPolicy": "reference-only",
+      "workflowStatus": "registered",
+      "reviews": {
+        "rightsReview": "pending",
+        "subjectReview": "pending",
+        "visualReview": "pending"
+      },
+      "tags": ["vocabulary", "adults", "comparison"]
+    },
+    {
+      "id": "travel-english-chat-match-remake",
+      "sourceId": "own-editorial-pack",
+      "title": "Travel English: messages while traveling",
+      "locale": "ru",
+      "subjectIds": ["english"],
+      "topicPath": ["Vocabulary", "Travel"],
+      "audiences": ["adult", "high-school"],
+      "mechanics": ["match", "quiz"],
+      "assets": [],
+      "referenceNotes": "A self-guided exercise on the general idea of quick matching.",
+      "redrawBrief": "New correspondence scene: Traveler messages are combined with original replies and situation icons.",
+      "originality": {
+        "mode": "independent-remake",
+        "inspiredByItemIds": ["language-game-mechanic-reference"],
+        "copiedText": false,
+        "copiedMedia": false,
+        "copiedLayout": false,
+        "newExpression": ["prompt", "dataset", "answer-options", "explanation", "visual-assets", "composition", "motion"],
+        "similarityNotes": "Only the abstract mechanics of comparison are preserved from the reference. The texts, theme, scene, graphics and movement are created anew."
+      },
+      "publishPolicy": "adapt-after-redraw",
+      "workflowStatus": "redrawn",
+      "reviews": {
+        "rightsReview": "pending",
+        "subjectReview": "pending",
+        "visualReview": "pending"
+      },
+      "tags": ["vocabulary", "travel", "correspondence", "independent remake"]
+    }
+  ]
+}

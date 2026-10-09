@@ -1,0 +1,43 @@
+import { describe, expect, it } from 'vitest'
+import { companionHint, createSession, observation } from './session'
+
+describe('in-world pendulum experiment', () => {
+  it('records complete periods automatically and resets measurements when parameters change', () => {
+    const session = createSession()
+    session.launch(); session.tick(15)
+    expect(session.measurements).toHaveLength(2)
+    session.tick(5)
+    expect(session.measurements).toHaveLength(2)
+    session.setLength(1, 1.25)
+    expect(session.states.every(state => state.period === null)).toBe(true)
+    session.tick(15)
+    expect(session.measurements).toHaveLength(4)
+    expect(session.measurements[3].length).toBe(1.25)
+    expect(observation(session).title).toContain('shorter string')
+  })
+  it('releases both masses from one angle so the comparison controls amplitude', () => {
+    const session = createSession()
+    session.pull(1, 60)
+    expect(session.running).toBe(false)
+    expect(session.settings.map(s => s.angle)).toEqual([60,60])
+    session.launch()
+    session.tick(20)
+    expect(session.states[0].period).toBeCloseTo(session.states[1].period!,5)
+    expect(observation(session).title).toBe('Different weight. One period.')
+    session.setLength(1, .8)
+    session.tick(20)
+    expect(companionHint(session)).toContain('Blue is slower')
+  })
+  it('changes worlds and wind through scene actions, and resets the entire experiment', () => {
+    const session = createSession()
+    session.cyclePlanet()
+    expect(session.environment.gravity).toBe(1.62)
+    session.toggleFan(); session.tick(10)
+    expect(session.states[0].heat).toBeGreaterThan(0)
+    session.resetAll()
+    expect(session.environment).toEqual({gravity:9.81,friction:0})
+    expect(session.measurements).toHaveLength(0)
+    expect(session.interactions).toBe(0)
+    expect(session.running).toBe(false)
+  })
+})

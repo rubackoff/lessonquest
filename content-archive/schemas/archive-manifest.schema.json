@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://corgi-trainer.local/schemas/archive-manifest.schema.json",
+  "title": "Manifesto of a local archive of educational references",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "sources", "items"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/source" }
+    },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/item" }
+    }
+  },
+  "definitions": {
+    "reviewStatus": {
+      "enum": ["pending", "passed", "failed"]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "kind", "owner", "license", "captureMode", "indexAllowed"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+        "title": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "kind": {
+          "enum": ["own-content", "user-owned", "author-permission", "open-license", "public-domain", "reference-link"]
+        },
+        "owner": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "license": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "allowedUses"],
+          "properties": {
+            "id": {
+              "enum": ["OWN-CONTENT", "AUTHOR-PERMISSION", "CC0-1.0", "CC-BY-4.0", "CC-BY-SA-4.0", "PUBLIC-DOMAIN", "PROPRIETARY-REFERENCE"]
+            },
+            "url": { "type": "string", "format": "uri" },
+            "attribution": { "type": "string", "maxLength": 1000 },
+            "allowedUses": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "enum": ["link", "index", "extract", "adapt", "publish-text", "publish-media"] }
+            }
+          }
+        },
+        "captureMode": { "enum": ["manual-link", "manual-file", "authorized-batch", "user-upload"] },
+        "indexAllowed": { "type": "boolean" },
+        "notes": { "type": "string", "maxLength": 2000 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "reference-link" } }, "required": ["kind"] },
+          "then": {
+            "properties": {
+              "captureMode": { "const": "manual-link" },
+              "indexAllowed": { "const": false },
+              "license": {
+                "properties": {
+                  "id": { "const": "PROPRIETARY-REFERENCE" },
+                  "allowedUses": {
+                    "type": "array",
+                    "items": { "const": "link" },
+                    "minItems": 1,
+                    "maxItems": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "path"],
+      "properties": {
+        "role": { "enum": ["source", "screenshot-tile", "extracted-media", "redrawn-media", "thumbnail"] },
+        "path": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "mimeType": { "type": "string", "maxLength": 100 },
+        "checksum": { "type": "string", "maxLength": 128 }
+      }
+    },
+    "originality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "copiedText", "copiedMedia", "copiedLayout", "newExpression"],
+      "properties": {
+        "mode": { "enum": ["original", "independent-remake", "licensed-adaptation"] },
+        "inspiredByItemIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,99}$" }
+        },
+        "copiedText": { "type": "boolean" },
+        "copiedMedia": { "type": "boolean" },
+        "copiedLayout": { "type": "boolean" },
+        "newExpression": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["prompt", "dataset", "answer-options", "explanation", "visual-assets", "composition", "motion", "sound"]
+          }
+        },
+        "similarityNotes": { "type": "string", "maxLength": 3000 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "mode": { "const": "independent-remake" } }, "required": ["mode"] },
+          "then": {
+            "required": ["inspiredByItemIds"],
+            "properties": {
+              "inspiredByItemIds": { "minItems": 1 },
+              "copiedText": { "const": false },
+              "copiedMedia": { "const": false },
+              "copiedLayout": { "const": false },
+              "newExpression": { "minItems": 4 }
+            }
+          }
+        }
+      ]
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sourceId", "title", "locale", "subjectIds", "audiences", "mechanics", "publishPolicy", "workflowStatus", "reviews", "tags"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,99}$" },
+        "sourceId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+        "sourceLocator": { "type": "string", "maxLength": 1000 },
+        "title": { "type": "string", "minLength": 1, "maxLength": 250 },
+        "locale": { "type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+        "subjectIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" }
+        },
+        "topicPath": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 100 }
+        },
+        "audiences": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["preschool", "primary", "middle-school", "high-school", "exam", "university", "adult", "professional"] }
+        },
+        "gradeFrom": { "type": "integer", "minimum": 1, "maximum": 11 },
+        "gradeTo": { "type": "integer", "minimum": 1, "maximum": 11 },
+        "mechanics": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["match", "group", "quiz", "recall", "find-error", "sequence", "construction", "arcade", "open-response"] }
+        },
+        "assets": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/asset" }
+        },
+        "referenceNotes": { "type": "string", "maxLength": 4000 },
+        "redrawBrief": { "type": "string", "maxLength": 4000 },
+        "originality": { "$ref": "#/definitions/originality" },
+        "publishPolicy": { "enum": ["reference-only", "adapt-after-redraw", "publish-with-attribution"] },
+        "workflowStatus": {
+          "enum": ["registered", "captured", "indexed", "extracted", "redraw-required", "redrawn", "verified", "publishable", "rejected"]
+        },
+        "reviews": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rightsReview", "subjectReview", "visualReview"],
+          "properties": {
+            "rightsReview": { "$ref": "#/definitions/reviewStatus" },
+            "subjectReview": { "$ref": "#/definitions/reviewStatus" },
+            "visualReview": { "$ref": "#/definitions/reviewStatus" }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 80 }
+        },
+        "capturedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "publishPolicy": { "const": "reference-only" } }, "required": ["publishPolicy"] },
+          "then": { "properties": { "workflowStatus": { "not": { "const": "publishable" } } } }
+        },
+        {
+          "if": { "properties": { "workflowStatus": { "const": "publishable" } }, "required": ["workflowStatus"] },
+          "then": {
+            "required": ["originality"],
+            "properties": {
+              "reviews": {
+                "properties": {
+                  "rightsReview": { "const": "passed" },
+                  "subjectReview": { "const": "passed" },
+                  "visualReview": { "const": "passed" }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

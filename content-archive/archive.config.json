@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "manifestSchema": "./schemas/archive-manifest.schema.json",
+  "subjectTaxonomy": "./taxonomy/subjects.json",
+  "privatePaths": [
+    "./raw",
+    "./tiles",
+    "./index",
+    "./manifests/*.local.json",
+    "./manifests/*.local.jsonl"
+  ],
+  "workflow": [
+    "registered",
+    "captured",
+    "indexed",
+    "extracted",
+    "redraw-required",
+    "redrawn",
+    "verified",
+    "publishable",
+    "rejected"
+  ],
+  "publishRequirements": [
+    "rightsReview:passed",
+    "subjectReview:passed",
+    "visualReview:passed"
+  ],
+  "independentRemakeRequirements": [
+    "copiedText:false",
+    "copiedMedia:false",
+    "copiedLayout:false",
+    "newExpression:minItems=4"
+  ]
+}

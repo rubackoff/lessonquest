@@ -1,0 +1,23 @@
+Use case: ui-mockup / stylized-concept.
+Create ONE exceptionally art-directed, production-quality visual reference image for an interactive Three.js physics laboratory for 13-year-old pupils. This is a proposed full-screen application scene, not a promotional landing page or a mood board. Landscape 16:10 composition, high resolution.
+
+INPUTS:
+Image 1 is an identity sheet: use ONLY the LEFT brown-haired character with turquoise hoodie, dark cargo pants, turquoise/white sneakers and backpack. Preserve that recognizable approved design; exclude the pirate and skull characters.
+Image 2 is the exact orange fox astronaut pet: retain its recognizable face, orange fur, white/orange space suit and fluffy tail.
+These two characters are supporting observers at the back right, together occupying less than 12% of the image. They stand on a believable shared surface with proper contact shadows. The apparatus dominates.
+
+ART DIRECTION:
+A tactile, sophisticated science workshop. The craft ambition is the inviting rendered materials and grounded lighting of Lusion's Choo Choo World, the tangible in-world interaction of Bruno Simon, and the mechanical clarity of Bartosz Ciechanowski. Translate those principles into an original laboratory, do not copy their logos, layouts, scenery or objects.
+Premium stylized 3D game art with physical plausibility, meticulously designed geometry, machined joints, bevels, subtle surface texture and large soft light sources. Rich warm daylight from upper left, soft cool bounce, beautiful ambient occlusion and coherent cast shadows. Restrained warm cream, deep desaturated teal, pale maple and graphite, with cobalt blue and warm coral accents on the experimental parts. Crisp visible experiment; room behind it softly recedes. No cheap glossy Christmas bauble look, no evenly spaced small white specular dots.
+
+MAIN SUBJECT:
+A beautifully designed two-pendulum comparison apparatus, filling roughly 75% of the frame. A low precision instrument base on a warm maple workbench, two compact sculptural off-white cantilever supports with dark anodized aluminum pivots and finely knurled adjustment wheels. The supports are original industrial design, not a giant rectangular gym frame, not an arch, not a portal. Two clearly taut thin dark cords run from visible pivots to large beautifully finished weighted bobs. Blue 1 kg bob and coral 2 kg bob; the second visibly larger. Brushed metal suspension necks, satin ceramic-coated bodies and convincing soft reflections. Both strings have the same physical length; the bobs are shown deflected in the same direction by 24 degrees. Each cord must visibly connect one pivot to its own weight. The mechanism is unambiguous.
+Camera close, at a modest three-quarter angle, approximately 15 degrees above the experiment, natural 45mm-like perspective. The viewer feels able to reach in and grab the large blue bob. Both bobs remain fully visible. Strong foreground/midground/background hierarchy; no enormous empty areas.
+
+IN-WORLD UI:
+Controls are the physical adjustment wheels and swappable weights. Length ruler engraved into the adjustment assembly. Two tiny integrated LCD readouts in the instrument base, each reading '2.48 s'. Engraved or closely attached labels '1.50 m', '1 kg' and '2 kg'. One subtle white pointer near the blue bob, with a very fine short arc showing the possible drag, only around that bob. No bright ribbons or motion trails.
+At top left, a small back arrow and a modest application title 'Pendulum'. At bottom center only the short instruction 'Pull and release'. Top right a discreet reset icon. That's all external UI. Restrained clean sans-serif typography, no big headline, no explanatory paragraphs, no sidebars, no parameter panels, no pill menus.
+
+Background: softly out-of-focus modern science studio with one warm window and a hint of shelving, quiet and uncluttered, not a blank gray void. Keep the immediate experiment impeccably sharp. Avatar and pet watch it from behind the bench, small and secondary.
+
+The result should feel like an expensive, coherent playable science installation that a pupil wants to touch. Original authored art, not an arrangement of default primitives. No planets, no stars, no neon, no portal, no confetti, no floating detached apparatus, no decorative energy bars, no irrelevant props, no chart dashboard, no extra characters. This is a proposed reference still, not evidence of a working implementation.

@@ -1,0 +1,56 @@
+.page { min-height: 100dvh; background: #fff; color: #18212d; }
+.header { height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 4.8%; border-bottom: 1px solid #e5ecef; }
+.brand { font-size: 23px; font-weight: 750; letter-spacing: -.8px; color: #18212d; text-decoration: none; }
+.brand span { color: #138b8f; }
+.studio { display: inline-flex; align-items: center; gap: 10px; color: #138b8f; font-size: 15px; text-decoration: none; }
+.content { width: min(1050px, calc(100% - 60px)); margin: 0 auto; }
+.heading { text-align: center; padding: 40px 0 32px; }
+.heading h1 { margin: 0 0 8px; font-size: clamp(30px, 3.1vw, 44px); letter-spacing: -1.3px; line-height: 1.15; font-weight: 700; }
+.heading p { font-size: 18px; color: #647383; margin: 0; }
+.editor { display: grid; grid-template-columns: 1.08fr 1fr; gap: 40px; align-items: center; }
+.preview { position: relative; background: #f0f4f5; border-radius: 14px; overflow: hidden; min-width: 0; }
+.preview > div { height: clamp(330px, 39vw, 490px); background: radial-gradient(ellipse at 50% 80%, #e2f0ed, #f0f4f5 70%); }
+.previewCaption { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); color: #647d85; font-size: 12px; white-space: nowrap; }
+.motionButton { position: absolute; top: 14px; right: 14px; border: 1px solid #d4e2e4; border-radius: 8px; padding: 9px 13px; color: #138b8f; background: #ffffffed; font-size: 12px; min-height: 38px; }
+.motionButton[aria-pressed='true'] { background: #e1f2ee; }
+.settings h2 { font-size: 28px; letter-spacing: -.6px; margin: 0 0 7px; font-weight: 650; line-height: 1.2; }
+.description { color: #647383; font-size: 16px; margin: 0 0 22px; }
+.skins { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 26px; }
+.skins button { position: relative; border: 1px solid #d9e3e7; border-radius: 12px; background: #f6f8f9; padding: 22px 12px 15px; display: flex; flex-direction: column; align-items: center; gap: 8px; color: #18212d; transition: border-color .15s, background .15s; }
+.skins button[aria-pressed='true'] { border: 2px solid #138b8f; background: #f0f7f6; padding: 21px 11px 14px; }
+.skins button:hover { border-color: #138b8f; }
+.skins strong { font-size: 16px; font-weight: 600; }
+.skins small { font-size: 10px; color: #71828b; }
+.swatch { width: 68px; height: 68px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 4px; box-shadow: inset 0 0 0 6px #ffffff66; }
+.swatch span { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #ffffffb0; }
+.selectedCheck { position: absolute; right: 10px; top: 10px; background: #138b8f; color: #fff; padding: 3px; width: 23px; height: 23px; border-radius: 50%; }
+.save, .play { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 48px; font-size: 15px; font-weight: 600; border-radius: 9px; text-decoration: none; transition: background .15s; }
+.save { background: #15945b; color: #fff; border: 1px solid #15945b; margin-bottom: 12px; }
+.save:hover { background: #107c4d; }
+.play { border: 1px solid #138b8f; color: #138b8f; background: #fff; }
+.play:hover { background: #f0f8f7; }
+.play[aria-disabled='true'] { color: #899a9c; border-color: #c7d6d7; }
+.notice { color: #71828b; font-size: 12px; min-height: 34px; margin: 12px 0 0; line-height: 1.6; }
+.achievements { border-top: 1px solid #e5ecef; margin-top: 32px; padding-top: 22px; }
+.achievements h2 { display: flex; align-items: center; gap: 10px; font-size: 22px; margin: 0 0 12px; }
+.achievements h2 svg, .achievements li > svg { color: #138b8f; }
+.achievements p { color: #647383; font-size: 15px; }
+.achievements ul { list-style: none; margin: 0; padding: 0; }
+.achievements li { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
+.achievements small { display: block; margin-top: 4px; color: #647383; font-size: 12px; }
+.footer { border-top: 1px solid #e5ecef; margin-top: 32px; padding: 20px 0; text-align: center; color: #7b8b95; font-size: 12px; }
+.footer span { display: block; margin-top: 6px; font-size: 10px; }
+.page button:focus-visible, .page a:focus-visible { outline: 3px solid #138b8f; outline-offset: 4px; box-shadow: none; }
+@media (max-width: 650px) {
+  .header { height: 59px; padding: 0 18px; }.brand { font-size: 18px; }.studio { font-size: 12px; gap: 5px; }
+  .content { width: calc(100% - 36px); max-width: 460px; }
+  .heading { padding: 27px 0 23px; }.heading h1 { font-size: 29px; letter-spacing: -.9px; }.heading p { font-size: 14px; }
+  .editor { grid-template-columns: 1fr; gap: 25px; }
+  .preview > div { height: 300px; }.previewCaption { bottom: 10px; font-size: 11px; }
+  .settings h2 { font-size: 23px; }.description { font-size: 14px; margin-bottom: 17px; }
+  .skins { margin-bottom: 20px; }.skins button { padding-block: 16px; }.skins button[aria-pressed='true'] { padding-block: 15px; }
+  .swatch { width: 52px; height: 52px; }.swatch span { width: 29px; height: 29px; }
+  .footer { margin-top: 20px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { .page * { transition: none !important; } }
+.header{height:auto;min-height:72px;gap:12px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}.header>button{border:1px solid #d3e5e3;border-radius:8px;background:#f1f8f6;color:#176b61}

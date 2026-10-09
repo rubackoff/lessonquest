@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "version": "1"
+  },
+  "savePath": "",
+  "images": [
+    { "name": "station-green.png", "path": "tmp/group-sort-atlas-input/station-green.png" },
+    { "name": "station-blue.png", "path": "tmp/group-sort-atlas-input/station-blue.png" },
+    { "name": "station-gold.png", "path": "tmp/group-sort-atlas-input/station-gold.png" },
+    { "name": "tray.png", "path": "tmp/group-sort-atlas-input/tray.png" },
+    { "name": "card.png", "path": "tmp/group-sort-atlas-input/card.png" },
+    { "name": "motif-graph.png", "path": "tmp/group-sort-atlas-input/motif-graph.png" },
+    { "name": "motif-atom.png", "path": "tmp/group-sort-atlas-input/motif-atom.png" },
+    { "name": "motif-feather.png", "path": "tmp/group-sort-atlas-input/motif-feather.png" },
+    { "name": "mascot-pedestal.png", "path": "tmp/group-sort-atlas-input/mascot-pedestal.png" },
+    { "name": "particle-spark.png", "path": "tmp/group-sort-atlas-input/particle-spark.png" }
+  ],
+  "folders": [],
+  "packOptions": {
+    "textureName": "atlas",
+    "textureFormat": "png",
+    "removeFileExtension": true,
+    "prependFolderName": false,
+    "scale": 1,
+    "filter": "none",
+    "exporter": "Phaser 3",
+    "base64Export": false,
+    "tinify": false,
+    "tinifyKey": "",
+    "fileName": "atlas",
+    "width": 2048,
+    "height": 2048,
+    "fixedSize": false,
+    "powerOfTwo": true,
+    "padding": 4,
+    "extrude": 2,
+    "allowRotation": false,
+    "allowTrim": false,
+    "trimMode": "trim",
+    "alphaThreshold": 1,
+    "detectIdentical": false,
+    "packer": "MaxRectsPacker",
+    "packerMethod": "SmartArea"
+  }
+}

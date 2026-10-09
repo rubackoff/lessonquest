@@ -1,0 +1,51 @@
+{
+  "scope": "/lab/pendulum",
+  "revision": "Living illustrated workshop v4",
+  "acceptedReference": "reference-concept-v4.png",
+  "userDirection": "Save image type; revive the skin and pet at the back, make the stand interactive.",
+  "presentation": "2.5D Three.js composition: one approved-image background plate, alpha-textured movable bobs, geometric cords, shader cinemagraph regions for the hoodie character and astronaut fox.",
+  "palette": {
+    "cream": "#e5cfb3",
+    "wood": "#9e6d44",
+    "metal": "#403d37",
+    "blue": "#157ab0",
+    "coral": "#e45a42",
+    "lcd": "#a9e6ff"
+  },
+  "type": {
+    "family": "Onest",
+    "titleAtReferenceSize": 29,
+    "objectLabels": 23,
+    "length": 25,
+    "lcd": 31,
+    "prompt": 29
+  },
+  "layout": {
+    "referenceWidth": 1586,
+    "referenceHeight": 992,
+    "framing": "Contain the entire approved composition; softly blurred matching backdrop fills unused space.",
+    "mobile": "All controls remain usable in portrait; a small orientation hint recommends landscape for a larger apparatus."
+  },
+  "chrome": [
+    "Back icon and Pendulum title",
+    "Reset icon",
+    "Single contextual instruction",
+    "Pause/start on the metal nameplate",
+    "Measured periods in the two LCD windows",
+    "Lengths printed on the uprights",
+    "Mass labels on the moving balls"
+  ],
+  "interaction": [
+    "Pull and release a bob; both then start with the same signed angle for a controlled comparison",
+    "Pull a knurled knob up/down to change length, 0.55–1.8 m",
+    "Drag a painted spare weight onto a bob; keyboard activation applies it to selected bob",
+    "Click fox for a short physics clue",
+    "Click notebook to inspect or download real measurements"
+  ],
+  "motion": "Nonlinear pendulum physics drives all experiment motion; breathing, head response, gaze and ear twitch use small localized image deformations. Reduced motion removes decorative character motion.",
+  "limitations": [
+    "The accepted hoodie character is part of this illustration; the previous GLB outfit selector is not exposed in this scene.",
+    "Independent ideal pendulums do not simulate collisions.",
+    "Touch checked in Chromium emulation, not a physical phone."
+  ]
+}

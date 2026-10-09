@@ -1,0 +1,227 @@
+{
+  "frames": {
+    "tray": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 1120,
+        "h": 210
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 1120,
+        "h": 210
+      },
+      "frame": {
+        "x": 6,
+        "y": 6,
+        "w": 1120,
+        "h": 210
+      },
+      "scale9Borders": {
+        "x": 40,
+        "y": 32,
+        "w": 1040,
+        "h": 130
+      }
+    },
+    "station-blue": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 352,
+        "h": 440
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 352,
+        "h": 440
+      },
+      "frame": {
+        "x": 6,
+        "y": 228,
+        "w": 352,
+        "h": 440
+      }
+    },
+    "station-gold": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 352,
+        "h": 440
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 352,
+        "h": 440
+      },
+      "frame": {
+        "x": 370,
+        "y": 228,
+        "w": 352,
+        "h": 440
+      }
+    },
+    "station-green": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 352,
+        "h": 440
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 352,
+        "h": 440
+      },
+      "frame": {
+        "x": 734,
+        "y": 228,
+        "w": 352,
+        "h": 440
+      }
+    },
+    "card": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 288,
+        "h": 172
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 288,
+        "h": 172
+      },
+      "frame": {
+        "x": 6,
+        "y": 680,
+        "w": 288,
+        "h": 172
+      },
+      "scale9Borders": {
+        "x": 24,
+        "y": 24,
+        "w": 240,
+        "h": 124
+      }
+    },
+    "mascot-pedestal": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 320,
+        "h": 108
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 108
+      },
+      "frame": {
+        "x": 306,
+        "y": 680,
+        "w": 320,
+        "h": 108
+      }
+    },
+    "motif-atom": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "frame": {
+        "x": 638,
+        "y": 680,
+        "w": 176,
+        "h": 176
+      }
+    },
+    "motif-feather": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "frame": {
+        "x": 306,
+        "y": 800,
+        "w": 176,
+        "h": 176
+      }
+    },
+    "motif-graph": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "frame": {
+        "x": 6,
+        "y": 864,
+        "w": 176,
+        "h": 176
+      }
+    },
+    "particle-spark": {
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64
+      },
+      "frame": {
+        "x": 194,
+        "y": 864,
+        "w": 64,
+        "h": 64
+      }
+    }
+  },
+  "meta": {
+    "app": "free-tex-packer-cli (Phaser 3 export normalized for Phaser 4 load.atlas)",
+    "version": "1",
+    "image": "atlas.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 2048,
+      "h": 2048
+    },
+    "scale": "1"
+  }
+}

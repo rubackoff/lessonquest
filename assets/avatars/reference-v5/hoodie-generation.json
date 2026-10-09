@@ -1,0 +1,23 @@
+{
+  "model": {
+    "shapegen": "tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1",
+    "texgen": "tencent/Hunyuan3D-2.1"
+  },
+  "params": {
+    "caption": null,
+    "steps": 30,
+    "guidance_scale": 5,
+    "seed": 1234,
+    "octree_resolution": 256,
+    "check_box_rembg": true,
+    "num_chunks": 8000
+  },
+  "number_of_faces": 245632,
+  "number_of_vertices": 122801,
+  "time": {
+    "remove background": 0.9920029640197754,
+    "shape generation": 16.97572946548462,
+    "export to trimesh": 0.05694437026977539,
+    "total": 18.02750825881958
+  }
+}

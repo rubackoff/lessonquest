@@ -1,0 +1,54 @@
+{
+  "game": "group-sort",
+  "version": 2,
+  "background": {
+    "key": "group-sort-background",
+    "file": "background.png",
+    "minAlpha": 1
+  },
+  "atlas": {
+    "key": "group-sort-art",
+    "image": "atlas.png",
+    "data": "atlas.json",
+    "format": "Phaser 3 normalized JSON hash",
+    "trimmed": false,
+    "rotated": false
+  },
+  "nineSlice": {
+    "card": {
+      "frame": "card",
+      "slice": [24, 24, 24, 24]
+    },
+    "tray": {
+      "frame": "tray",
+      "slice": [40, 40, 32, 48]
+    }
+  },
+  "stations": [
+    { "frame": "station-green", "motif": "motif-graph" },
+    { "frame": "station-blue", "motif": "motif-atom" },
+    { "frame": "station-gold", "motif": "motif-feather" }
+  ],
+  "mascot": {
+    "image": "/game-assets/common/mascot/corgi-coach.png",
+    "pedestalFrame": "mascot-pedestal"
+  },
+  "particles": {
+    "sparkFrame": "particle-spark",
+    "blendMode": "ADD",
+    "correctBurst": 18
+  },
+  "safeArea": {
+    "stationTitleTop": 0.15,
+    "stationMotifCenterY": 0.48,
+    "stationCardsBottom": 0.19
+  },
+  "essentialBytes": {
+    "background": 504384,
+    "atlas": 822345,
+    "mascot": 36141,
+    "total": 1362870,
+    "desktopLimit": 1572864
+  },
+  "provenance": "docs/asset-provenance/group-sort.md"
+}

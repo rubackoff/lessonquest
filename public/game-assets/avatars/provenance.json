@@ -1,0 +1,24 @@
+{
+  "source": "Original geometry authored locally in scripts/build-casual-avatars.mjs",
+  "reference": "docs/games/space-maze/avatar-outfits-v3.png",
+  "animation": "Original shared skeletal Idle and Run, in-place",
+  "externalAssets": [],
+  "files": [
+    {
+      "file": "casual-hoodie.glb",
+      "bytes": 1145732,
+      "triangles": 31508,
+      "materials": 12,
+      "bones": 18,
+      "sha256": "583d4a5ff940b0a3388d377809d53767c5b1707ed6504eb2bd8008f3113d1e2a"
+    },
+    {
+      "file": "casual-jacket.glb",
+      "bytes": 1145840,
+      "triangles": 31344,
+      "materials": 12,
+      "bones": 18,
+      "sha256": "d0e9e5e974c0a1cb8078f5ac78552c0ed641f179ae9ce5289649b516effd6534"
+    }
+  ]
+}

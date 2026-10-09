@@ -1,0 +1,54 @@
+{
+  "route": "/lab/pendulum",
+  "revision": "v4 — accepted image brought to life",
+  "reference": "https://phet.colorado.edu/en/simulations/pendulum-lab",
+  "concept": "design-references/pendulum-lab/reference-concept-v4.png",
+  "sourceGuide": "C:/Users/rubac/Desktop/Phet/HTML5/pendulum-lab/PDF/pendulum-lab-html-guide_en.pdf",
+  "implementation": "Original Three.js 2.5D scene, nonlinear RK4 physics, measured same-direction crossings, projected DOM controls. No PhET code or visual assets copied.",
+  "assets": [
+    "/game-assets/pendulum/workshop-plate-v4.png",
+    "/game-assets/pendulum/bobs-atlas-v4.png"
+  ],
+  "assetCreation": {
+    "tool": "image_gen.imagegen (built-in)",
+    "prompts": "production-assets-v4.prompts.json",
+    "source": "Approved concept v4, with shared hoodie avatar and fox identity"
+  },
+  "modelDifference": "Viscous damping exists in the retained physics model, but this focused apparatus exposes length, mass and amplitude at Earth gravity. The two ideal pendulums do not collide.",
+  "validation": [
+    "8 physics/session tests",
+    "TypeScript and scoped ESLint",
+    "Browser drag/release: 2.48 s and 2.48 s at equal lengths with different masses",
+    "Direct knob drag: right length 1.10 m gives 2.12 s while left remains 2.48 s",
+    "2 kg weight drag onto blue bob",
+    "Pet clue, notebook, four automatically recorded rows, Escape focus return",
+    "Desktop 1586×992, landscape 844×390, portrait 390×844; keyboard and reduced-motion preference",
+    "No app console warnings or errors after final shader fix",
+    "Chromium touch events: successful pull/release and equal measured periods",
+    "CSV download checked: two rows, correct mass, length, angle and measured period",
+    "Production smoke check: 2.46 s and 2.46 s, no browser errors",
+    "Fox head tilt and ear movement on tap and mass change; browser shader check clean"
+  ],
+  "mismatchLedger": [
+    {
+      "reference": "Detailed workshop and fixed apparatus",
+      "implementation": "Cleaned plate retains composition, lighting and materials."
+    },
+    {
+      "reference": "Painted hanging balls",
+      "implementation": "Generated transparent atlas at the same visual quality; real position and scale follow experiment state."
+    },
+    {
+      "reference": "Static 24° markings and 2.48 s",
+      "implementation": "Angle shown while dragging; LCD numbers appear only after measured cycles."
+    },
+    {
+      "reference": "Still characters",
+      "implementation": "Localized subtle breathing, head, gaze and ear motion."
+    }
+  ],
+  "preview": "http://127.0.0.1:3000/lab/pendulum",
+  "browserFallback": "IAB navigation failed earlier in this session; Playwright CLI used.",
+  "productionBuild": "npm run build passed; local production server updated on port 3000.",
+  "reviewer": "AI role-play of a 13-year-old: 8/10 first impression, no blocking defect; requested a more visible fox reaction. Targeted head/ear reaction was strengthened after review. This was not a test with a real child."
+}

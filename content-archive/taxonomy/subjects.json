@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "subjects": [
+    { "id": "preschool", "title": "Preschool development", "group": "early-learning", "aliases": ["preparation for school", "development", "logic for kids"] },
+    { "id": "primary-school", "title": "Primary School", "group": "early-learning", "aliases": ["Grade 1", "Grade 2", "Grade 3", "Grade 4"] },
+    { "id": "language-arts", "title": "Language Arts", "group": "languages", "aliases": ["grammar", "spelling", "punctuation"] },
+    { "id": "literature", "title": "Literature", "group": "humanities", "aliases": ["reading", "text analysis"] },
+    { "id": "english", "title": "English", "group": "foreign-languages", "aliases": ["english", "ESL", "business english"] },
+    { "id": "german", "title": "German language", "group": "foreign-languages", "aliases": ["deutsch"] },
+    { "id": "french", "title": "French language", "group": "foreign-languages", "aliases": ["français"] },
+    { "id": "spanish", "title": "Spanish language", "group": "foreign-languages", "aliases": ["español"] },
+    { "id": "chinese", "title": "Chinese language", "group": "foreign-languages", "aliases": ["中文", "Mandarin"] },
+    { "id": "arithmetic", "title": "Arithmetic", "group": "mathematics", "aliases": ["account", "fractions", "interest"] },
+    { "id": "algebra", "title": "Algebra", "group": "mathematics", "aliases": ["equations", "functions", "expressions"] },
+    { "id": "geometry", "title": "Geometry", "group": "mathematics", "aliases": ["planimetry", "stereometry", "drawings"] },
+    { "id": "probability-statistics", "title": "Probability and Statistics", "group": "mathematics", "aliases": ["combinatorics", "data"] },
+    { "id": "calculus", "title": "Mathematical analysis", "group": "mathematics", "aliases": ["derivative", "integral", "limit"] },
+    { "id": "informatics", "title": "Computer Science", "group": "technology", "aliases": ["programming", "algorithms", "computer science"] },
+    { "id": "physics", "title": "Physics", "group": "natural-sciences", "aliases": ["mechanics", "electricity", "optics"] },
+    { "id": "chemistry", "title": "Chemistry", "group": "natural-sciences", "aliases": ["reactions", "organic chemistry"] },
+    { "id": "biology", "title": "Biology", "group": "natural-sciences", "aliases": ["anatomy", "botany", "zoology"] },
+    { "id": "ecology", "title": "Ecology", "group": "natural-sciences", "aliases": ["ecosystems", "environment"] },
+    { "id": "astronomy", "title": "Astronomy", "group": "natural-sciences", "aliases": ["space", "solar system"] },
+    { "id": "geography", "title": "Geography", "group": "humanities", "aliases": ["cards", "countries", "continents"] },
+    { "id": "history", "title": "History", "group": "humanities", "aliases": ["world history", "history of Russia"] },
+    { "id": "social-studies", "title": "Social Studies", "group": "humanities", "aliases": ["society", "civics"] },
+    { "id": "economics", "title": "Economics", "group": "humanities", "aliases": ["financial literacy", "market"] },
+    { "id": "law", "title": "Right", "group": "humanities", "aliases": ["jurisprudence", "law"] },
+    { "id": "art", "title": "fine arts", "group": "arts", "aliases": ["ISO", "history of art"] },
+    { "id": "music", "title": "Music", "group": "arts", "aliases": ["music theory", "solfeggio"] },
+    { "id": "professional", "title": "Professional courses", "group": "adult-learning", "aliases": ["adults", "corporate training", "soft skills"] }
+  ]
+}

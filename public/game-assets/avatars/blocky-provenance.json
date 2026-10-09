@@ -1,0 +1,96 @@
+{
+  "reference": "docs/games/shared-avatar/three-skins-v5.png",
+  "date": "2026-10-06",
+  "source": "scripts/build-reference-v5-avatars.mjs",
+  "reconstruction": "Saved Tencent Hunyuan3D-2.1 shape outputs; closed faceted meshes, slightly shortened heads, refined upper silhouette, authored hoodie backpack and shared 23-bone weights",
+  "materials": {
+    "source": "Built-in Image Gen front/back/left/right surface painting, preserving orthographic renders of the actual meshes",
+    "directory": "assets/avatars/reference-v5",
+    "encoding": "One embedded 1024x1024 JPEG per skin (quality 80, 4:2:0); xatlas UV charts with four-view surface painting; matte PBR with flat face normals"
+  },
+  "animation": "Preserved user-approved offline CC0 Idle/Run retarget; assets/avatars/reference-v5/approved-motion.json; stationary Root, apron and chain secondary motion, actual sole contact correction",
+  "externalAssets": [
+    {
+      "author": "Quaternius",
+      "title": "Universal Animation Library — free Standard, 2025-06 mirror",
+      "license": "CC0-1.0",
+      "official": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "mirror": "https://github.com/J-Ponzo/gltf-universal-animation-library/tree/e24c23cf2a1323488a3faa226ea7ea21f644b73e",
+      "sourceDirectory": "assets/avatars/quaternius-ual-standard",
+      "clips": {
+        "Idle": "Idle_Loop",
+        "Run": "Jog_Fwd_Loop"
+      }
+    },
+    {
+      "author": "Tencent",
+      "title": "Hunyuan3D-2.1 shape generation",
+      "license": "Tencent Hunyuan3D-2.1 Community License",
+      "official": "https://huggingface.co/spaces/tencent/Hunyuan3D-2.1",
+      "sourceDirectory": "assets/avatars/source",
+      "parameters": {
+        "seed": 1234,
+        "steps": 30,
+        "guidance": 5,
+        "octreeResolution": 256,
+        "chunks": 8000
+      }
+    }
+  ],
+  "files": [
+    {
+      "id": "hoodie",
+      "file": "blocky-hoodie.glb",
+      "bytes": 947440,
+      "sha256": "b2cd76ecb8f6c46c52651b9b74ecc123b288034f925ebab12bc4295be75096f3",
+      "triangles": 6284,
+      "vertices": 18852,
+      "bones": 23,
+      "materials": 1,
+      "error": 0.003047524718567729,
+      "partClosure": {
+        "capTriangles": 286,
+        "openEdges": 0
+      },
+      "atlasSha256": "bdc205c0ca555237894fa54e70e6062f380630c2649526081cc02a57fbf9cdab",
+      "sourceFile": "assets/avatars/source/hoodie-hunyuan-v5-shape.glb",
+      "sourceSha256": "e1b3a80b7cea814cf08ba0514157f2454d87df1e00278f8ec96587c924e22458"
+    },
+    {
+      "id": "hook",
+      "file": "blocky-hook.glb",
+      "bytes": 1032240,
+      "sha256": "84871cdec637424f258abb0e6b49eb0a9100edc2b3c873f8dbf7852bdf041929",
+      "triangles": 6486,
+      "vertices": 19458,
+      "bones": 23,
+      "materials": 1,
+      "error": 0.005251946859061718,
+      "partClosure": {
+        "capTriangles": 488,
+        "openEdges": 0
+      },
+      "atlasSha256": "2fa6b5b679318c20a89f6720339ad3b69175cdd6d74b11668699d0509459e899",
+      "sourceFile": "assets/avatars/source/hook-hunyuan-v5-shape.glb",
+      "sourceSha256": "5e98c8adc728d9cef1caa063d1b8ee8aa27a4d5d829845e03398d9c35e673163"
+    },
+    {
+      "id": "phantom",
+      "file": "blocky-phantom.glb",
+      "bytes": 978132,
+      "sha256": "23ddcd685392eedab01353999e1fe0a21930c0a2ecfee7e50680a10cfb19c9f0",
+      "triangles": 6388,
+      "vertices": 19164,
+      "bones": 23,
+      "materials": 1,
+      "error": 0.00402524508535862,
+      "partClosure": {
+        "capTriangles": 402,
+        "openEdges": 0
+      },
+      "atlasSha256": "e1665ebb67f36b96bbe03f04aaef713d7a55b7f0c5470402a3b41ced3a0e6dbc",
+      "sourceFile": "assets/avatars/source/phantom-hunyuan-v5-shape.glb",
+      "sourceSha256": "89bc55f4b87afb093c4647d753ad329397e758e08ed0fdfe8349ff4ce825e8e1"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-09",
+  "status": "accepted_by_user_and_implemented_as_2.5D_scene",
+  "brief": "Create a good visual reference of the laboratory before further site edits. The experiment should be the main thing, the controls should be inside the scene, the character from Igrodel and the foxes should be in the background.",
+  "concept": "reference-concept-v4.png",
+  "prompt": "reference-concept-v4.prompt.txt",
+  "generator": "image_gen.imagegen",
+  "references": [
+    {
+      "title": "Choo Choo World — Lusion",
+      "url": "https://lusion.co/projects/choo_choo_world/",
+      "experience": "https://choochooworld.com/",
+      "take": "Solid artistic style, soft light, three-dimensional objects that invite interaction.",
+      "inspection": "The studio page is read, the live website is opened, Start Building is clicked. The full game scenario has not been tested."
+    },
+    {
+      "title": "Mechanical Watch — Bartosz Ciechanowski",
+      "url": "https://ciechanow.ski/mechanical-watch/",
+      "take": "Close-up of the mechanism and animation that shows the cause-and-effect relationship. Attention remains on the object being studied.",
+      "inspection": "The main article has been studied and the interactive material has been opened in the browser."
+    },
+    {
+      "title": "Bruno Simon",
+      "url": "https://bruno-simon.com/",
+      "take": "Feeling of the living world and tangible objects, interaction directly in the 3D scene.",
+      "inspection": "Read the official page and viewed images from the search. Live experience failed: loading through the built-in browser timed out."
+    },
+    {
+      "title": "Simple Machines — Tinybop",
+      "url": "https://tinybop.com/apps/simple-machines",
+      "take": "The learning experience is built around a clear action and an observable result.",
+      "inspection": "The official application page has been studied."
+    }
+  ],
+  "direction": {
+    "composition": "The setup takes up the bulk of the frame; The camera is close, the background of the workshop is soft and calm.",
+    "materials": "Cream painted frame, dark metal, colored weights, warm wood, contact shades.",
+    "interaction": "Pull the weight, turn the length knob, replace the weight. The numbers are displayed directly on the installation.",
+    "experiment": "Two pendulums allow us to compare the effects of mass and length. All effects must help to observe a physical phenomenon.",
+    "characters": "A character with a turquoise hoodie and an orange fox astronaut watch from the background."
+  },
+  "limits": [
+    "The concept itself is a generated still.",
+    "The implemented scene, interactions, character motion and verification are documented in reference-manifest.json."
+  ]
+}
