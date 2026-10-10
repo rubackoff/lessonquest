@@ -675,6 +675,9 @@ export function TrainerApp() {
             ))}
           </div>
 
+          <Link className="studio-nav-link" href="/lab/refraction">Refraction at the lighthouse →</Link>
+          <Link className="studio-nav-link" href="/lab/circuit">Electric circuit in the depot →</Link>
+
           <button className="new-session" onClick={restart} type="button">
             <Zap size={18} />
             New practice

@@ -6,6 +6,8 @@ LessonQuest is a prototype platform for practice in mathematics, science, langua
 
 ## What's inside
 
+The public homepage features Space Maze, Orbital Runner, Base Defense, and the circuit, refraction, and pendulum labs with previews captured from the running activities. Other prototypes remain accessible by direct URL (`/practice`, `/studio`, `/lab/mechanics`, `/lab/missions`, and their existing routes), but are not promoted in the homepage or profile navigation.
+
 - Practice templates: matching, sorting, quizzes, recall cards, error diagnosis, and a force laboratory.
 - Space Maze, Orbital Runner, and Base Defense with educational objectives and shared avatars.
 - A mechanics playground with 100 authored scenarios across multiple subjects. Several scenarios have dedicated interactions; others share reusable engines. This is not a claim of 100 distinct game engines.

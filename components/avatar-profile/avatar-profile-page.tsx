@@ -27,7 +27,7 @@ export function AvatarProfilePage() {
   return <main className={styles.page}>
     <header className={styles.header}>
       <Link href="/" className={styles.brand}>Lesson<span>Quest</span></Link>
-      <Link href="/studio" className={styles.studio}>To the studio<ArrowRight size={19} /></Link>
+      <Link href="/" className={styles.studio}>Games & labs<ArrowRight size={19} /></Link>
       <GraphicsToggle lowQuality={lowQuality} onChange={setLowQuality} />
     </header>
     <div className={styles.content}>
@@ -56,21 +56,9 @@ export function AvatarProfilePage() {
             setDraft(null)
             setNotice(success ? 'Skin saved. He will appear in games.' : 'The browser did not allow me to save the skin. Check your storage settings.')
           }}>Save skin{saved && !dirty && <CheckCircle2 size={18} />}</button>
-          <Link className={styles.play} href="/lab/space-maze" aria-disabled={dirty} onClick={(event) => {
+          <Link className={styles.play} href="/" aria-disabled={dirty} onClick={(event) => {
             if (dirty) { event.preventDefault(); setNotice('First save the selected skin.') }
-          }}>Open the maze<ArrowRight size={18} /></Link>
-          <Link className={styles.play} href="/lab/orbital-runner" aria-disabled={dirty} onClick={(event) => {
-            if (dirty) { event.preventDefault(); setNotice('First save the selected skin.') }
-          }}>Open runner<ArrowRight size={18} /></Link>
-          <Link className={styles.play} href="/lab/tower-defense" aria-disabled={dirty} onClick={(event) => {
-            if (dirty) { event.preventDefault(); setNotice('First save the selected skin.') }
-          }}>Base Defense<ArrowRight size={18} /></Link>
-          <Link className={styles.play} href="/lab/expedition" aria-disabled={dirty} onClick={(event) => {
-            if (dirty) { event.preventDefault(); setNotice('First save the selected skin.') }
-            }}>Expedition with construction<ArrowRight size={18} /></Link>
-            <Link className={styles.play} href="/lab/missions" aria-disabled={dirty} onClick={(event) => {
-              if (dirty) { event.preventDefault(); setNotice('First save the selected skin.') }
-            }}>Games and simulators<ArrowRight size={18} /></Link>
+          }}>Explore games & labs<ArrowRight size={18} /></Link>
           <p className={styles.notice} role="status">{notice || (dirty ? 'There are unsaved changes.' : 'The profile is stored in this browser.')}</p>
         </div>
       </section>
